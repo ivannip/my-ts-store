@@ -1,0 +1,13 @@
+.order-list {
+  background: rgb(246, 236, 236);
+  height: 100px;
+}
+
+.orderlist-total {
+  text-align: right;
+}
+
+.ordered-img {
+  height: 50px;
+  border-radius: 50%;
+}

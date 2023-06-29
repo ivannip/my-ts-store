@@ -1,0 +1,31 @@
+[
+    {
+        "id": 1,
+        "name": "Strawburries",
+        "price": 10.99,
+        "imgUrl": "/imgs/strawburries.jpeg",
+        "inventory": 100
+    },
+    {
+        "id": 2,
+        "name": "Banana",
+        "price": 5.99,
+        "imgUrl": "/imgs/banana.jpeg",
+        "inventory": 100
+    },
+    {
+        "id": 3,
+        "name": "Apple",
+        "price": 8.55,
+        "imgUrl": "/imgs/apple.jpeg",
+        "inventory": 100
+    },
+    {
+        "id": 4,
+        "name": "Star Fruit",
+        "price": 18.99,
+        "imgUrl": "/imgs/starfruit.jpeg",
+        "inventory": 100
+    }
+
+]

@@ -1,0 +1,7 @@
+build
+node_modules
+dist
+remark.txt
+.git
+.notes
+test

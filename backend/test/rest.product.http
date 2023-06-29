@@ -1,0 +1,63 @@
+###show all product
+Get http://localhost:3001/api/v1/product/all HTTP/1.1
+//Get https://react-onlineshop0x.onrender.com/product/all HTTP/1.1
+
+###show product by Id
+Get http://localhost:3001/api/v1/product/one/1 HTTP/1.1
+
+###add a product
+POST  http://localhost:3001/api/v1/product/new HTTP/1.1
+content-type: application/json
+    
+   {
+        "name": "Star Fruit",
+        "price": 18.99,
+        "imgUrl": "/imgs/starfruit.jpeg"
+    }
+
+###add a product
+POST  http://localhost:3001/api/v1/product/new HTTP/1.1
+content-type: application/json
+    
+   {
+        "name": "Apple",
+        "price": 2.99,
+        "imgUrl": "/imgs/apple.jpeg"
+    }
+
+###add a product
+POST  http://localhost:3001/api/v1/product/new HTTP/1.1
+content-type: application/json
+    
+   {
+        "name": "Banana",
+        "price": 8.99,
+        "imgUrl": "/imgs/banana.jpeg"
+    }
+
+###add a product
+POST  http://localhost:3001/api/v1/product/new HTTP/1.1
+content-type: application/json
+    
+   {
+        "name": "Strawburry",
+        "price": 6.99,
+        "imgUrl": "/imgs/strawburries.jpeg"
+    }
+       
+
+###Update Inventory
+POST http://localhost:3001/api/v1/product/amends HTTP/1.1
+content-type: application/json
+
+{
+"purchasedItems": [
+    {
+  "productId": 1,
+  "quantity": 10
+    },
+{
+  "productId": 2,
+  "quantity": 10
+}]
+}

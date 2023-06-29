@@ -1,0 +1,37 @@
+###show all order
+Get http://localhost:3001/api/v1/order/all HTTP/1.1
+
+###show one order
+Get http://localhost:3001/api/v1/order/one/15 HTTP/1.1
+
+###create one order
+Post http://localhost:3001/api/v1/order/new HTTP/1.1
+content-type: application/json
+
+{
+  "customer": "Overflow",
+    "contact": "347598347",
+    "deliveryDate": null,
+    "deliveryAddress": "eiutoeiruotr",
+  "purchasedItems": [
+    {
+      "productId": 1,
+      "quantity": 1000
+      
+    },
+    {
+      "productId": 2,
+      "quantity": 1
+      
+    }
+  ]
+}
+
+###Redis Call
+Post http://localhost:3001/api/v1/redis/push HTTP/1.1
+content-type: application/json
+
+{"id":"6"}
+
+###reset
+Post http://localhost:3001/api/v1/admin/init HTTP/1.1

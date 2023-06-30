@@ -2,7 +2,7 @@ import {ReactNode, createContext, useContext, useState, useEffect} from "react"
 import axios from "axios"
 import { ShoppingCart } from "../components/ShoppingCart";
 import { useLocalStorage } from "../hooks/useLocalStorage";
-import { OrderType } from "./types";
+
 
 type ShoppingCartProviderProps = {
     children: ReactNode
@@ -26,7 +26,6 @@ type ShoppingCartContext = {
   cartQuantity: number
   cartItems: CartItem []
   storeItems: StoreItemType []
-  orders: OrderType []
 }
 
 type CartItem = {
@@ -47,7 +46,6 @@ const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) => {
     const [cartItems, setCartItems] = useLocalStorage <CartItem []> ("shopping-cart", [])
     const [isOpen, setIsOpen] = useState(false);
     const [storeItems, setStoreItems] = useState <StoreItemType []>([])
-    const [orders, setOrders] = useState<OrderType []> ([])
 
      
     useEffect( () => {
@@ -57,8 +55,6 @@ const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) => {
             let res = await axios.get(`${import.meta.env.VITE_API_ENDPOINT}product/all`)
             setStoreItems(res.data.products)
 
-            res = await axios.get(`${import.meta.env.VITE_API_ENDPOINT}order/all`)
-            setOrders(res.data.orders)
         }
 
         fetch()
@@ -115,7 +111,7 @@ const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) => {
 
     return (
       <ShoppingCartContext.Provider value={{getQuantity, increaseQuantity, decreaseQuantity, removeFromCart, emptyCart,
-      cartQuantity, cartItems, openCart, closeCart, storeItems, orders}}>
+      cartQuantity, cartItems, openCart, closeCart, storeItems}}>
         {children}
         <ShoppingCart isOpen={isOpen}/>
       </ShoppingCartContext.Provider>

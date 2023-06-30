@@ -57,7 +57,12 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 
 (async () => {
   // const CHANNEL_NAME = "orderChannel"
-  await redisService.subscriberFromRedis();
+  try {
+    await redisService.subscriberFromRedis();
+  } catch (err) {
+    console.log(err)
+  }
+  
   // await redisSubscriber.connect();
   // await redisSubscriber.subscribe(CHANNEL_NAME, async (id: string) => {   
   //   console.log(`message is ${id}`)          

@@ -34,4 +34,5 @@ content-type: application/json
 {"id":"6"}
 
 ###reset
-Post http://localhost:3001/api/v1/admin/init HTTP/1.1
+# Post http://localhost:3001/api/v1/admin/init HTTP/1.1
+POST https://my-ts-store.onrender.com/api/v1/admin/init HTTP/1.1

@@ -23,6 +23,7 @@ export function ShoppingCart({isOpen}:ShoppingCartType) {
         };
         try {
             const result = await axios.post("/api/v1/order/new", order)
+            console.log(result.data);
             await axios.post("/api/v1/redis/push", {id: result.data.order.id})
         } catch (err) {
             console.log(err)

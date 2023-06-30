@@ -1,6 +1,6 @@
 ###show all product
-Get http://localhost:3001/api/v1/product/all HTTP/1.1
-//Get https://react-onlineshop0x.onrender.com/product/all HTTP/1.1
+# Get http://localhost:3001/api/v1/product/all HTTP/1.1
+Get https://my-ts-store.onrender.com/api/v1/product/all HTTP/1.1
 
 ###show product by Id
 Get http://localhost:3001/api/v1/product/one/1 HTTP/1.1

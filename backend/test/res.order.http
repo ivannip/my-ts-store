@@ -1,6 +1,6 @@
 ###show all order
-Get http://localhost:3000/api/v1/order/all HTTP/1.1
-# Get https://my-ts-store.onrender.com/api/v1/order/all HTTP/1.1
+# Get http://localhost:3000/api/v1/order/all HTTP/1.1
+Get https://my-ts-store.onrender.com/api/v1/order/all HTTP/1.1
 
 ###show one order
 Get http://localhost:3001/api/v1/order/one/15 HTTP/1.1

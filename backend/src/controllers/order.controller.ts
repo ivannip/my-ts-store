@@ -1,12 +1,14 @@
-import { RequestHandler, Request, Response } from "express";
+import { RequestHandler, Request, Response, NextFunction } from "express";
 import { NewOrderType, OrderType } from "../types";
 import { orderService } from "../services/order.service";
+import { redisService } from "../services/redis.service";
 
 
-export const newOrder: RequestHandler<{}, {}, NewOrderType> = async (req: Request, res: Response) => {
+export const newOrder: RequestHandler<{}, {}, NewOrderType> = async (req: Request, res: Response, next?: NextFunction) => {
     try {
         
         const order: OrderType = await orderService.createOrder(req.body, "pending");
+        redisService.publishToRedis((order.id).toString())
         res.status(200).json({message: "ok", order: order})
     } catch (err) {
         console.log(err)
@@ -15,7 +17,7 @@ export const newOrder: RequestHandler<{}, {}, NewOrderType> = async (req: Reques
     
 }
 
-export const showOrderById: RequestHandler<{id:string}> = async(req: Request, res: Response) => {
+export const showOrderById: RequestHandler<{id:string}> = async(req: Request, res: Response, next?: NextFunction) => {
     const id = req.params.id
     
     try {
@@ -27,7 +29,7 @@ export const showOrderById: RequestHandler<{id:string}> = async(req: Request, re
     }
 }
 
-export const showAllOrder: RequestHandler = async(req: Request, res: Response) => {
+export const showAllOrder: RequestHandler = async(req: Request, res: Response, next?: NextFunction) => {
     
     try {
         const orders: OrderType [] = await orderService.readAllOrder();

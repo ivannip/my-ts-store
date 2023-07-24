@@ -1,9 +1,9 @@
 import { PrismaClient } from "@prisma/client";
-import { NewOrderType, OrderType } from "../types";
+import { NewOrderType } from "../types";
 
 const prisma = new PrismaClient();
 
-const readOrderById = async (id: string) => {
+export const readOrderById = async (id: string) => {
     try {
         return await prisma.order.findUnique({
             where: {id: parseInt(id)},
@@ -21,7 +21,7 @@ const readOrderById = async (id: string) => {
 }
 
 
-const readAllOrder = async () => {
+export const readAllOrder = async () => {
     try {
          return await prisma.order.findMany({include:{
             purchasedItems: {
@@ -36,7 +36,7 @@ const readAllOrder = async () => {
 }
 
 
-const createOrder = async (order: NewOrderType, status: "pending") => {
+export const createOrder = async (order: NewOrderType, status: "pending") => {
     try {
         
         return await prisma.order.create({
